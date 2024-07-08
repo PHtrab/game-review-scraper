@@ -8,6 +8,7 @@ from urllib.parse import urlparse, urljoin
 import time
 
 def get_review_urls(driver, metacritic_url):
+    print(f"Attempting to get review URLs from {metacritic_url}")
     driver.get(metacritic_url)
     WebDriverWait(driver, 20).until(
         EC.presence_of_element_located((By.CLASS_NAME, "c-siteReview_externalLink"))
@@ -19,6 +20,7 @@ def get_review_urls(driver, metacritic_url):
     return [urljoin(metacritic_url, link['href']) for link in review_links]
 
 def scrape_reviews(driver, url, min_word_count=30):
+        print(f"Attempting to scrape reviews from {url}")
     try:
         driver.get(url)
         WebDriverWait(driver, 20).until(
