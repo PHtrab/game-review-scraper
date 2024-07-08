@@ -1,5 +1,2 @@
 streamlit
-selenium
-beautifulsoup4
-webdriver-manager
-urllib3
+
